@@ -2,6 +2,9 @@ from dataclasses import fields
 from pyexpat import model
 from django import forms
 from matplotlib import widgets
+from matplotlib.pyplot import text
+from requests import request
+from responses import POST
 from . models import *
 
 class NotesForm(forms.ModelForm):
@@ -17,3 +20,11 @@ class HomeworkForm(forms.ModelForm):
         model = Homework
         widgets = {'due':DateInput()}
         fields = ['subject', 'title', 'description', 'due', 'is_finished']
+
+class DashboardForm(forms.Form):
+    text = forms.CharField(max_length=100, label="Enter Your Search")
+
+class TodoForm(forms.ModelForm):    
+    class Meta:
+        model = Todo
+        fields = ['title','is_finished']
