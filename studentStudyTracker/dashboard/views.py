@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from matplotlib.style import context
 import requests
+from django.contrib.auth.decorators import login_required
 
 import dashboard
 from . forms import *
@@ -12,7 +13,7 @@ def home(request):
     return render(request, 'dashboard/home.html')
 
 # Notes 
-
+@login_required
 def notes(request):
     if request.method == "POST":
         form = NotesForm(request.POST)
@@ -26,12 +27,13 @@ def notes(request):
     context = {'notes':notes,'form':form}
     return render(request, 'dashboard/notes.html',context)
 
+@login_required
 def delete_note(request, pk=None):
     Notes.objects.get(id=pk).delete()
     return redirect('notes')
 
 # Homework
-
+@login_required
 def homework(request):
     if request.method == "POST":
         form = HomeworkForm(request.POST)
@@ -64,6 +66,7 @@ def homework(request):
     context = {'homeworks':homework,'homeworks_done':homework_done,'form':form}
     return render(request, 'dashboard/homework.html',context)
 
+@login_required
 def update_homework(request, pk=None):
     homework = Homework.objects.get(id=pk)
     if homework.is_finished == True:
@@ -73,14 +76,14 @@ def update_homework(request, pk=None):
     homework.save()
     return redirect('homework')
 
-
+@login_required
 def delete_homework(request, pk=None):
     Homework.objects.get(id=pk).delete()
     return redirect('homework')
 
 
 # todo
-
+@login_required
 def todo(request):
     if request.method == 'POST':
         form = TodoForm(request.POST)
@@ -113,7 +116,7 @@ def todo(request):
         'todos_done':todos_done
     }
     return render(request, "dashboard/todo.html",context)
-
+@login_required
 def update_todo(request, pk=None):
     todo = Todo.objects.get(id=pk)
     if todo.is_finished == True:
@@ -122,10 +125,12 @@ def update_todo(request, pk=None):
         todo.is_finished = True
     todo.save()
     return redirect('todo')
-
+@login_required
 def delete_todo(request, pk=None):
     Todo.objects.get(id=pk).delete()
     return redirect('todo')
+
+#books
 
 def books(request):
     if request.method == "POST":
@@ -138,23 +143,38 @@ def books(request):
         for i in range(10):
             result_dict = {
                 'title':answer['items'][i]['volumeInfo']['title'],
-                'subtitle':answer['items'][i]['volumeInfo'].get['subtitle'],
-                'description':answer['items'][i]['volumeInfo'].get['description'],
-                'count':answer['items'][i]['volumeInfo'].get['count'],
-                'categories':answer['items'][i]['volumeInfo'].get['categories'],
-                'rating':answer['items'][i]['volumeInfo'].get['pageRating'],
-                'thumbnail':answer['items'][i]['volumeInfo'].get['imageLinks'],
-                'preview':answer['items'][i]['volumeInfo'].get['previewLink'],
+                'subtitle':answer['items'][i]['volumeInfo'].get('subtitle'),
+                'description':answer['items'][i]['volumeInfo'].get('description'),
+                'count':answer['items'][i]['volumeInfo'].get('count'),
+                'categories':answer['items'][i]['volumeInfo'].get('categories'),
+                'rating':answer['items'][i]['volumeInfo'].get('pageRating'),
+                'thumbnail':answer['items'][i]['volumeInfo'].get('imageLinks').get('thumbnail'),
+                'preview':answer['items'][i]['volumeInfo'].get('previewLink'),
             }
-        result_list.append(result_dict)
-        context={
-            'form':form,
-            'results':result_list
-        }
+            result_list.append(result_dict)
+            context={
+                'form':form,
+                'results':result_list
+            }
         return render(request, 'dashboard/books.html',context)
     else:
         form = DashboardForm()
     context = {'form':form}
     return render(request, "dashboard/books.html",context)
 
+#register
 
+def register(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request,f"account created successfully")
+            return redirect("login")
+    else:    
+        form = userRegistrationForm()
+    context = {
+        'form':form
+    }
+    return render(request, 'dashboard/register.html',context)

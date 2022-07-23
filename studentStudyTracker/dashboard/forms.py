@@ -6,6 +6,7 @@ from matplotlib.pyplot import text
 from requests import request
 from responses import POST
 from . models import *
+from django.contrib.auth.forms import UserCreationForm
 
 class NotesForm(forms.ModelForm):
     class Meta:
@@ -28,3 +29,8 @@ class TodoForm(forms.ModelForm):
     class Meta:
         model = Todo
         fields = ['title','is_finished']
+
+class userRegistrationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ['username', 'password2']

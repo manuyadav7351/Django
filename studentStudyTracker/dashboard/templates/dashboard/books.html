@@ -10,17 +10,17 @@
         {{ form }}
         <input class="btn btn-danger" type="submit" value="Submit">
     </form><br>
-    {% for result in results%}
-    <a href="{{result.preview}}" target="_blank">
+    {% for result in results %}
+    <a href="{{ result.preview }}" target="_blank">
         <div class="card">
             <div class="card-header">
                 <div class="row">
                     <div class="col-md-3">
-                        <img class="img-fluid" src="{{result.thumbnail}}" alt="">
+                        <img class="img-fluid" src="{{ result.thumbnail }}" alt="">
 
                     </div>
                     <div class="col-md-9">
-                        <h3 class="p-0 m-0">{{result.title}}</h3>
+                        <h3 class="p-0 m-0">{{ result.title }}</h3>
                         <b>
                             <u>
                                 <h5 class="p-0 m-0">{{result.subtitle}}</h5>
