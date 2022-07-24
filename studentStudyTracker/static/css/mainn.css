@@ -1,0 +1,309 @@
+
+body {
+    scroll-behavior: smooth;
+    /* height: 100%;
+    width: 100%; */
+    margin: 0%;
+    padding: 0%;
+}
+
+/* naviagtion bar */
+
+#navigationbar{
+    background-color: #888383;
+    color: white;
+    height: 4rem;
+    width: 100%;
+}
+
+#navigationbar .navi{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+    justify-content: space-around;
+}
+
+#navigationbar .navi .logo{
+    position: relative;
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+#navigationbar .navi ul{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    list-style: none;
+}
+    
+
+#navigationbar .navi ul li a{
+    font-size: 1rem;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    margin: 0px 30px;
+}
+#navigationbar .navi ul li a:hover{
+    color: red;
+    background-color: aliceblue;
+    border-radius: 2px;
+    padding: 4px 4px;
+    transform: scale(1.025);
+}
+
+/* end of navigatin bar */
+
+/* cards of home page */
+
+#welcome{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    margin-top: 0%;
+}
+
+#cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 30px;
+}
+ 
+#card{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+    height: 350px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#card a{
+    text-decoration: none;
+}
+
+#card:hover{
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.5);
+    transform: scale(1.025);
+}
+
+#card img{
+    height: 200px;
+    width: 250px;
+}
+
+#card .card-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#card .card-info h3{
+    text-transform: uppercase;
+    color: black;
+    font-size: 1.5rem;
+}
+
+#card .card-info p{
+    color: #131313;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 2%;
+} 
+
+
+/* ends cards of home page */
+
+/* homework tamplate */
+
+#homework table{
+    width: 100%;
+
+}
+
+#homework table,th,td{
+    border: 2px solid black;
+    text-align: center;
+}
+
+#homework .homework tbody td a i{
+    color: red;
+}
+
+/* end of homework tamplate */
+
+/* notes template */
+
+#notes{
+    height: auto;
+    width: auto;
+    font-size: large;
+    background-color: #f8f0f0;
+}
+
+#notes .noteed{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#notes .noteed .title{
+    width: 10%;
+    border: 1px solid black;
+    padding: 4px 0px;
+    text-transform: capitalize;
+}
+
+#notes .noteed .description{
+    width: 80%;
+    border: 1px solid black;
+    padding: 4px 0px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+#notes .noteed .delete{
+    width: 10%;
+    border: 1px solid black;
+    padding: 4px 0px;
+}
+
+#notes .noteed .delete a i{
+    color: red;
+}
+
+/* end of notes template */
+
+/* books template */
+
+#books{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #888383;
+}
+
+#books h2{
+    color: black;
+    font-size: 2rem;
+}
+
+#books p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+#books form{
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+#books form .btn:hover{
+    transform: scale(1.025);
+}
+
+/* end of books template */
+
+/* books deatils */
+
+#booksdetail{
+    width: 90%;
+    height: 500px;
+    text-decoration: none;
+}
+
+#booksdeatil .linking{
+    text-decoration: none;
+}
+
+#booksdetail .card{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+#booksdetail .card img{
+    height: 250px;
+    width: 250px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+#booksdetail .card .info{
+    color: #f8f0f0;
+    text-decoration: none;
+}
+
+#booksdetail .card .info h3{
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #131313;
+}
+
+#booksdetail .card .info h5{
+    font-size: 1rem;
+    font-weight: 200;
+    color: #131313;
+}
+
+#booksdetail .card .info h6{
+    color: #131313;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* end of books detial books deatils */
+
+/* logout */
+
+#logout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logout h2{
+    font-size: 2rem;
+    color: #131313;
+    font-weight: 600;
+}
+
+#logout h3{
+    font-size: 1.5rem;
+    background-color: red;
+    padding: 10px 30px;
+    border-radius: 4px;
+}
+
+#logout h3 .btn{
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* end of logout */
+
+/* signin */
+
+#signin .new{
+    margin-top: 30px;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* end of signin */

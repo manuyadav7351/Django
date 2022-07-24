@@ -1,23 +1,21 @@
 {% extends 'dashboard/base.html' %} 
 {% load static %} 
 {% block content %}
-<div class="container">
+<div id="signin">
     <form method="POST">
         {% csrf_token %}
       <fieldset class="form-group">
         <legend class="border-bottom mb-4">Log In</legend>
         {{ form }}
       </fieldset>
-      <div class="form-group">
-        <button href="" class="btn btn-outline-info" type="submit">
+      <div class="signIn">
+        <button href="" class="btn" type="submit">
           Sign In
         </button>
       </div>
     </form>
-    <div class="border-top pt-3">
-      <small class="text-muted">Need an Account?
-        <a class="ml-2" href="{% url 'register' %}">Create an Account</a>
-      </small>
-    </div>
+      <div class="new">Need an Account?
+        <a class="link" href="{% url 'register' %}">Create an Account</a>
+      </div>
   </div>
 {% endblock content %}

@@ -2,26 +2,17 @@
 {% load static %}
 {% block content %}
 
-<div class="container">
-    <div class="row">
+<div id="notes">
         {% for note in notes %}
-        <div class="col-md-3">
-            <a href="">
-                <div class="card">
-                    <div class="card-header">{{note.title}}</div>
-                    <div class="card-body">{{note.description}}</div>
-                    <div class="card-footer mt-auto "><a href="{% url 'delete-note' note.id %}">
-                        <i class="fa fa-trash fa-2x"></i></a>
+                <div class="noteed">
+                    <div class="title">{{note.title}}</div>
+                    <div class="description">{{note.description}}</div>
+                    <div class="delete"><a href="{% url 'delete-note' note.id %}"><i class="fa fa-trash fa-2x"></i></a>
                     </div>
                 </div>
-            </a>
-        </div>
         {% endfor %}
-        <br><br>
-
-    </div>
 </div>
-<br><br>
+<br>
 <div class="container">
     <form method="POST">
         {% csrf_token %}

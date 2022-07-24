@@ -2,66 +2,46 @@
 {% load static %} 
 {% block content %}
 
-<section class="container text-center">
-  <h3>Welcome</h3>
-
-  <hr> <br>
-  <div class="row">
-    <div class="col-md-3">
-      <a href="{% url 'notes' %}">
-        <div class="card">
-          <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
-          <div class="card-body">
-            <h5 class="card-title ">
-              Notes
-            </h5>
-            Create Notes to refer them later. They are stored permanently until deleted
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-md-3">
-      <a href="{% url 'homework' %}">
-        <div class="card">
-          <img class="card-img-top" src="{% static 'images/homework.jpg' %}" alt="Notes image">
-          <div class="card-body">
-            <h5 class="card-title ">
-              Homework
-            </h5>
-            Add homeworks and assign them deadlines. They will be displayed prioritised by deadlines
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-3">
-      <a href="{% url 'todo' %}">
-        <div class="card">
-          <img class="card-img-top" src="{% static 'images/todo.jpg' %}" alt="Notes image">
-          <div class="card-body">
-            <h5 class="card-title ">
-              To Do
-            </h5>
-            Add your to-do lists for your day and remove them as you finish
-          </div>
-        </div>
-      </a>
-    </div>
-    <div class="col-md-3 ">
-      <a href="{% url 'books' %}">
-        <div class="card mt-20">
-          <img class="card-img-top" src="{% static 'images/books.jpg' %}" alt="Notes image">
-          <div class="card-body">
-            <h5 class="card-title ">
-              Books
-            </h5>
-            Browse books from a list of neatly organised book menu
-          </div>
-        </div>
-      </a>
-    </div>
+<section>
+<h3 id="welcome">Welcome</h3>
+<hr></br>
+<div id="cards">
+  <div id="card">
+    <a href="{% url 'notes' %}">
+      <img src="{% static 'images/notes.jpg' %}" alt="Notes image">
+      <div class="card-info">
+        <h3>Notes</h3>
+        <p>Create Notes to refer them later. They are stored permanently until deleted</p>
+      </div>
+    </a>
   </div>
-
-
+  <div id="card">
+    <a href="{% url 'homework' %}">
+      <img src="{% static 'images/homework.jpg' %}" alt="Notes image">
+      <div class="card-info">
+        <h3>Homework</h3>
+        <p>Add homeworks and assign them deadlines.To remember deadlines</p>
+      </div>
+    </a>
+  </div>
+  <div id="card">
+    <a href="{% url 'todo' %}">
+      <img src="{% static 'images/todo.jpg' %}" alt="Notes image">
+      <div class="card-info">
+        <h3>To Do</h3>
+        <p>Create To-Do to refer them later and Remove them later. when you are done.</p>
+      </div>
+    </a>
+  </div>
+  <div id="card">
+    <a href="{% url 'books' %}">
+      <img src="{% static 'images/books.jpg' %}" alt="Notes image">
+      <div class="card-info">
+        <h3>Books</h3>
+        <p>Search your books from here and get them in organised manner.</p>
+      </div>
+    </a>
+  </div>
+</div>
 </section>
 {% endblock content %}
