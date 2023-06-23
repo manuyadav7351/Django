@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dish Search</title>
+</head>
+<body>
+    <h1>Dish Search</h1>
+
+    <form method="get" action="{% url 'dish_search' %}">
+        {% csrf_token %}
+        <label for="dish_name">Enter Dish Name:</label>
+        <input type="text" name="dish_name" id="dish_name">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if matched_restaurants %}
+        <h2>Matched Restaurants:</h2>
+        <ul>
+            {% for restaurant in matched_restaurants %}
+                <li>{{ restaurant.name }}  =>  {{ dish_name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No matching restaurants found.</p>
+    {% endif %}
+</body>
+</html>
