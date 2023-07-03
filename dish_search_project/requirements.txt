@@ -1,1 +1,8 @@
 Django==3.2.4
+
+instruction 
+
+picture => it is located in picture folder in root directory
+Project Name => ( dish search project ) is used as a Project Name
+App Name => ( dish_search ) is used as a app name
+loaddata.py => in root directory loaddata.py file is used to load data into the database from csv file
